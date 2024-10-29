@@ -1,0 +1,57 @@
+﻿@model MVCUYGPROJE.Areas.Admin.Models.BookVMs.AdminBookCreateVM
+
+@{
+    ViewData["Title"] = "Create Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1>Create New Book</h1>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name">Book Name</label>
+            <input asp-for="Name" class="form-control custom-form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateOfPublish">Publish Date</label>
+            <input asp-for="DateOfPublish" type="date" class="form-control custom-form-control" />
+            <span asp-validation-for="DateOfPublish" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="IsAvailable" class="form-check-input" />
+            <label asp-for="IsAvailable" class="form-check-label">Is Available</label>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <select asp-for="AuthorId" asp-items="@Model.Authors" class="form-control custom-form-control">
+                <option value="">--- Select Author ---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select asp-for="CategoryId" asp-items="@Model.Categories" class="form-control custom-form-control">
+                <option value="">--- Select Category ---</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Publisher</label>
+            <select asp-for="PublisherId" asp-items="@Model.Publishers" class="form-control custom-form-control">
+                <option value="">--- Select Publisher ---</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-animate">Create</button>
+        </div>
+        <br />
+    </form>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

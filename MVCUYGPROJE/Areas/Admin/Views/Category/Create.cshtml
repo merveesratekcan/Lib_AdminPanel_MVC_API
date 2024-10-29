@@ -1,0 +1,36 @@
+﻿@model MVCUYGPROJE.Areas.Admin.Models.CategoryVMs.AdminCategoryCreateVM
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<h4>Admin Category Create</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control rounded-pill" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Create" class="btn btn-warning rounded-pill" style="width: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary rounded-pill" style="box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

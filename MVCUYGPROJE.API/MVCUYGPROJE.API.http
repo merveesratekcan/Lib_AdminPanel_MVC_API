@@ -1,0 +1,6 @@
+@MVCUYGPROJE.API_HostAddress = http://localhost:5126
+
+GET {{MVCUYGPROJE.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

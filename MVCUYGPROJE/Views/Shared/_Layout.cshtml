@@ -1,0 +1,241 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Boost</title>
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+</head>
+<style>
+    .custom-form-control {
+        border: 2px solid #007BFF; /* Mavi tonunda bir kenarlık */
+        background-color: #E7F1FF; /* Çok açık mavi bir arkaplan */
+        transition: all 0.3s; /* Geçiş efekti */
+    }
+
+        .custom-form-control:focus {
+            border-color: #0056b3; /* Odaklandığında daha koyu bir kenarlık rengi */
+            background-color: #D0E7FF; /* Odaklandığında biraz daha koyu bir arkaplan */
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Odaklandığında gölge efekti */
+        }
+
+    .btn-animate {
+        transition: all 0.5s ease; /* Buton animasyonu için geçiş */
+    }
+
+        .btn-animate:active {
+            transform: scale(0); /* Butona basıldığında küçülme efekti */
+            opacity: 0; /* Butona basıldığında saydamlık efekti */
+        }
+</style>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="/assets/img/bilge-adam.png" alt="Bilge Adam" style="height: 40px;">
+                <span class="d-none d-lg-block">BilgeAdam</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge bg-primary badge-number">4</span>
+                    </a><!-- End Notification Icon -->
+                    <!-- Notifications Dropdown Items Placeholder -->
+                </li><!-- End Notification Nav -->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span class="badge bg-success badge-number">3</span>
+                    </a><!-- End Messages Icon -->
+                    <!-- Messages Dropdown Items Placeholder -->
+                </li><!-- End Messages Nav -->
+
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    </a><!-- End Profile Image Icon -->
+                    <!-- Profile Dropdown Items Placeholder -->
+                </li><!-- End Profile Nav -->
+          
+            </ul>
+        </nav><!-- End Icons Navigation -->
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a href="#"><i class="bi bi-circle"></i><span>Name1</span></a></li>
+                    <li><a href="#"><i class="bi bi-circle"></i><span>Name2</span></a></li>
+                    <li><a href="#"><i class="bi bi-circle"></i><span>Name3</span></a></li>
+                    <!-- Additional names -->
+                </ul>
+            </li><!-- End Category Nav -->
+            <!-- Other Sidebar Placeholder -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="users-profile.html">
+                    <i class="bi bi-person"></i>
+                    <span>Profile</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+          
+         
+            <li class="nav-item">
+                <select id="selectLanguage">
+                    <option value="">@Localizer["Dil"]</option>
+                    <option value="tr">@Localizer["TR"]</option>
+                    <option value="en">@Localizer["EN"]</option>
+                    
+                </select>
+                </li> 
+            <li class="nav-item">
+                <a asp-controller="Account" asp-action="Logout" asp-area="" class="nav-link collapsed">
+                    <i class="bi bi-person"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+        <!-- Content added here will be inside main container -->
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        @RenderBody()
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright <strong><span>BilgeAdam</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js"></script>
+    <script>
+        document.getElementById('selectLanguage').addEventListener('change',function (){
+            var selectedCulture=this.value;
+            document.cookie=".AspNetCore.Culture=c=" + selectedCulture + "|uic=" +selectedCulture + ";path=/";
+            location.reload();
+        })
+        </script>
+
+@*     <script>
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById('selectLanguage').value;
+            var path = window.location.pathname;
+            document.cookie = ".AspNetCore.Culture=c=" + selectedLanguage + "|uic=" + selectedLanguage + ";path=/;expires=" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toUTCString();
+            window.location.reload();
+        }
+    </script> *@
+    <!-- Template Main JS File -->
+
+    <!-- AJAX-->
+
+@*     <script>
+        $(document).ready(function () {
+            $('.availability-Checkbox').change(function () {
+                var id = $(this).data('id');
+                var isAvailable = $(this).prop(':checked');
+                console.log(id);
+                $.ajax({
+                    url: '@Url.Action("UpdateAvailability", "Book")',
+                    type: 'POST',
+                    data: JSON.stringify({ bookId: id, isbookAvailable: isAvailable }),
+                    contentType: 'application/json; charset=UTF-8',
+                    success: function (response) {
+                        if (response.success) {
+                            alert('Success');
+                        } else {
+                            alert('Error');
+                        }
+                    }
+                });
+            });
+        });
+    </script> *@
+    <script>
+        $(document).ready(function () {
+            $('.availability-Checkbox').change(function () {
+                var id = $(this).closest('tr').find('.book-id').val();  // Gizli alandan ID'yi alıyoruz
+                var isAvailable = $(this).prop('checked');
+
+                console.log("Checkbox changed: ID =", id, "IsAvailable =", isAvailable);
+
+                $.ajax({
+                    url: '@Url.Action("UpdateAvailability", "Book")',
+                    method: 'POST',
+                    data: {
+                        bookId: id,
+                        isbookAvailable: isAvailable
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            alert('Success');
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+  
+    <script src="~/assets/js/main.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")   <!--view componenti sayfaya bağlamak için invoke etmeliyim.-->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+  
+
